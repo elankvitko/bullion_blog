@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <title>Bullion Exchanges | Blog</title>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel='stylesheet' id='compass-google-fonts-css'  href='//fonts.googleapis.com/css?family=Roboto%3Aregular%2Citalic%2C700%7COswald%3Aregular%2C700%26subset%3Dlatin%2C&#038;ver=4.8.1' type='text/css' media='all' />
+    <link rel="stylesheet" id='compass-style-css'  href="/stylesheets/style.css" type='text/css' media='all'>
+    <link rel='stylesheet' id='media-queries-css'  href='/stylesheets/media-queries.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='compass-google-font-default-css'  href='/stylesheets/g_fonts.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='dashicons-css'  href='/stylesheets/dashicons.css' type='text/css' media='all' />
+    <!-- ADD CUSTOM FROM PUBLIC IF NEED BE -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
