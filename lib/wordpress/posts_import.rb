@@ -33,10 +33,17 @@ module WordPress
       content = format_syntax_highlighter( content )
       content.gsub( /[\n]{2,}+/, "\n\n" )
       images = Nokogiri::HTML( @doc.content ).css( "img" ).collect { | image | image.attributes.values }
-      image_links = images.collect { | image_object | image_object[ 1 ].value }
+      image_links = images.collect { | image_object | image_object[ 1 ].value }.reject { | link | link.empty? || link.nil? }
 
       image_links.each do | link |
-        file = open( link )
+        next if !link.include? "http"
+
+        begin
+          file = open( link )
+        rescue
+          file = open( URI.parse( URI.escape( link ) ) )
+        end
+
         location = "#{ link.split( "/" )[ -1 ] }"
         IO.copy_stream( file, location )
         save_image_s3( location )
