@@ -32,12 +32,22 @@ module WordPress
       content = @doc.xpath( "content:encoded" ).text
       content = format_syntax_highlighter( content )
       content.gsub( /[\n]{2,}+/, "\n\n" )
+      images = Nokogiri::HTML( @doc.content ).css( "img" ).collect { | image | image.attributes.values }
+      binding.pry
     end
 
     def comments
       @doc.xpath( "wp:comment" ).collect do | comment |
-        Comment.new( comment )
+        Comment.new( body: comment.text )
       end
+    end
+
+    def category
+      @doc.xpath( "category" ).text
+    end
+
+    def tags
+      binding.pry
     end
 
     def format_syntax_highlighter( text )
