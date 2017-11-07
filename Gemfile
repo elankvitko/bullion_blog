@@ -30,6 +30,7 @@ gem 'nokogiri'
 gem 'pry-rails'
 gem 'devise'
 gem 'charlock_holmes'
+gem 'aws-sdk'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

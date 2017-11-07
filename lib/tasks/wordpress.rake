@@ -3,6 +3,8 @@ namespace :wordpress do
   task import: :environment do
     # Get the WordPress data
     require 'wordpress/posts_import'
+    require 'open-uri'
+    AWS_RESOURCE = Aws::S3::Resource.new( region: 'us-east-2', access_key_id: ENV[ 'AWSAccessKeyId' ], secret_access_key: ENV[ 'AWSSecretKey' ] )
     data = WordPress::Data.new
     # Import the posts
     data.posts.each do | data |
