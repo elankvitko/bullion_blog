@@ -2,94 +2,211 @@
   <div class="widgets clearfix  widgets-3">
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-4">
       <h3 class="title">
-        <span><a href="http://devtest.nycbullion.com/index.php/category/sport/winter-sports/">World</a></span>
+        <span><a href="#">Weekly Market Analysis</a></span>
       </h3>
 
-      <div class="main-post">
-        <a href="http://devtest.nycbullion.com/index.php/2011/04/06/esser-necessi-far-uniform/" title="Summiting Yosemite&#8217;s Dawn Wall, Climbers Make History"><img src="http://devtest.nycbullion.com/wp-content/uploads/2011/04/Summitting_Island_Peak-640x400.jpg" alt="Summiting Yosemite&#8217;s Dawn Wall, Climbers Make History" class="Thumbnail thumbnail featured-cat " width="640" height="400" /></a>
-        <h3 class="entry-title">
-          <a href="http://devtest.nycbullion.com/index.php/2011/04/06/esser-necessi-far-uniform/" title="Summiting Yosemite&#8217;s Dawn Wall, Climbers Make History">Summiting Yosemite&#8217;s Dawn Wall, Climbers Make History</a>
-        </h3>
-        <div class="entry-meta">
-          <span>April 6, 2011</span>
-          <span><a href="http://devtest.nycbullion.com/index.php/2011/04/06/esser-necessi-far-uniform/#respond">0 comments</a></span>
+      <% dmr = @posts_by_category[ "Weekly Market Analysis" ] %>
+      <% if !dmr.empty? %>
+        <div class="main-post">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+          </a>
+          <h3 class="entry-title">
+            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+          </h3>
+          <div class="entry-meta">
+            <span><%= dmr[ 0 ].original_date %></span>
+            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
+          </div>
+          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
         </div>
-        <p>This is some dummy copy. You’re not really supposed to read this dummy copy, it is just a place holder for people who need some type to visualize what the actual copy might look like if it were real content. If you want to read, I might suggest a good [&hellip;]</p>
-      </div>
 
-      <ul class="featured-list">
-        <li>
-          <h4 class="entry-title">
-            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-          </h4>
-          <div class="clear"></div>
-        </li>
-      </ul>
-      <div class="clear"></div>
-
-      <div class="clear"></div>
+        <ul class="featured-list">
+          <li>
+            <h4 class="entry-title">
+              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+            </h4>
+            <div class="clear"></div>
+          </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      <% end %>
     </div>
 
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-6">
       <h3 class="title">
-        <span><a href="http://devtest.nycbullion.com/index.php/category/sport/">Travel</a></span>
+        <span><a href="#">Daily Market Review</a></span>
       </h3>
 
-      <div class="main-post">
-        <a href="http://devtest.nycbullion.com/index.php/2012/01/18/g-power-m6-hurricane-cs-based-on-bmw-m6/" title="Preparations for Preliminary Draw underway"><img src="http://devtest.nycbullion.com/wp-content/uploads/2010/06/fifa2010-640x400.jpg" alt="Preparations for Preliminary Draw underway" class="Thumbnail thumbnail featured-cat " width="640" height="400" /></a>
-        <h3 class="entry-title">
-          <a href="http://devtest.nycbullion.com/index.php/2012/01/18/g-power-m6-hurricane-cs-based-on-bmw-m6/" title="Preparations for Preliminary Draw underway">Preparations for Preliminary Draw underway</a>
-        </h3>
-
-        <div class="entry-meta">
-          <span>January 18, 2012</span>
-          <span><a href="http://devtest.nycbullion.com/index.php/2012/01/18/g-power-m6-hurricane-cs-based-on-bmw-m6/#respond">0 comments</a></span>
+      <% dmr = @posts_by_category[ "Daily Market Review" ] %>
+      <% if !dmr.empty? %>
+        <div class="main-post">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+          </a>
+          <h3 class="entry-title">
+            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+          </h3>
+          <div class="entry-meta">
+            <span><%= dmr[ 0 ].original_date %></span>
+            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
+          </div>
+          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
         </div>
 
-        <p>This is some dummy copy. You’re not really supposed to read this dummy copy, it is just a place holder for people who need some type to visualize what the actual copy might look like if it were real content. If you want to read, I might suggest a good [&hellip;]</p>
-      </div>
-
-      <ul class="featured-list">
-        <li>
-          <h4 class="entry-title">
-            <a href="http://devtest.nycbullion.com/index.php/2011/04/06/ignitus-carborundum-e-pluribus-2/" title="When the VW Race Touareg dominated Dakar">When the VW Race Touareg dominated Dakar</a>
-          </h4>
-          <div class="clear"></div>
-        </li>
-        <li>
-          <h4 class="entry-title"><a href="http://devtest.nycbullion.com/index.php/2011/04/06/ignitus-carborundum-e-pluribus/" title="New era begins in Argentine club football, for now">New era begins in Argentine club football, for now</a></h4>
-          <div class="clear"></div>
-        </li>
-        <li>
-          <h4 class="entry-title"><a href="http://devtest.nycbullion.com/index.php/2011/04/06/ignitus-carborundum-e-pluribus/" title="New era begins in Argentine club football, for now">New era begins in Argentine club football, for now</a></h4>
-          <div class="clear"></div>
-        </li>
-      </ul>
-
-      <div class="clear"></div>
-      <div class="clear"></div>
+        <ul class="featured-list">
+          <li>
+            <h4 class="entry-title">
+              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+            </h4>
+            <div class="clear"></div>
+          </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      <% end %>
     </div>
 
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-2">
       <h3 class="title">
-        <span><a href="http://devtest.nycbullion.com/index.php/category/business/social-media/">Technology</a></span>
+        <span><a href="#">Market News</a></span>
       </h3>
-      <div class="main-post">
-        <a href="http://devtest.nycbullion.com/index.php/2015/02/10/why-twitter-struck-a-deal-with-google/" title="Why Twitter struck a deal with Google"><img src="http://devtest.nycbullion.com/wp-content/uploads/2015/02/Ascani_TwitterIPO-9-640x400.jpg" alt="Why Twitter struck a deal with Google" class="Thumbnail thumbnail featured-cat " width="640" height="400" /></a>
-        <h3 class="entry-title">
-          <a href="http://devtest.nycbullion.com/index.php/2015/02/10/why-twitter-struck-a-deal-with-google/" title="Why Twitter struck a deal with Google">Why Twitter struck a deal with Google</a>
-        </h3>
 
-        <div class="entry-meta">
-          <span>February 10, 2015</span>
-          <span><a href="http://devtest.nycbullion.com/index.php/2015/02/10/why-twitter-struck-a-deal-with-google/#respond">0 comments</a></span>
+      <% dmr = @posts_by_category[ "Market News" ] %>
+      <% if !dmr.empty? %>
+        <div class="main-post">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+          </a>
+          <h3 class="entry-title">
+            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+          </h3>
+          <div class="entry-meta">
+            <span><%= dmr[ 0 ].original_date %></span>
+            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
+          </div>
+          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
         </div>
 
-        <p>This is some dummy copy. You’re not really supposed to read this dummy copy, it is just a place holder for people who need some type to visualize what the actual copy might look like if it were real content. If you want to read, I might suggest a good [&hellip;]</p>
-      </div>
+        <ul class="featured-list">
+          <li>
+            <h4 class="entry-title">
+              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+            </h4>
+            <div class="clear"></div>
+          </li>
+        </ul>
 
-      <div class="clear"></div>
-      <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      <% end %>
+    </div>
+  </div>
+</section><!-- .site-widgetized-section -->
+<section class="site-widgetized-section section-top">
+  <div class="widgets clearfix  widgets-3">
+    <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-4">
+      <h3 class="title">
+        <span><a href="#">New Releases</a></span>
+      </h3>
+
+      <% dmr = @posts_by_category[ "New Releases" ] %>
+      <% if !dmr.empty? %>
+        <div class="main-post">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+          </a>
+          <h3 class="entry-title">
+            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+          </h3>
+          <div class="entry-meta">
+            <span><%= dmr[ 0 ].original_date %></span>
+            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
+          </div>
+          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+        </div>
+
+        <ul class="featured-list">
+          <li>
+            <h4 class="entry-title">
+              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+            </h4>
+            <div class="clear"></div>
+          </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      <% end %>
+    </div>
+
+    <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-6">
+      <h3 class="title">
+        <span><a href="#">Precious Metals Investing</a></span>
+      </h3>
+
+      <% dmr = @posts_by_category[ "Precious Metals Investing" ] %>
+      <% if !dmr.empty? %>
+        <div class="main-post">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+          </a>
+          <h3 class="entry-title">
+            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+          </h3>
+          <div class="entry-meta">
+            <span><%= dmr[ 0 ].original_date %></span>
+            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
+          </div>
+          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+        </div>
+
+        <ul class="featured-list">
+          <li>
+            <h4 class="entry-title">
+              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+            </h4>
+            <div class="clear"></div>
+          </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      <% end %>
+    </div>
+
+    <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-2">
+      <h3 class="title">
+        <span><a href="#">Miscellaneous</a></span>
+      </h3>
+
+      <% dmr = @posts_by_category[ "Miscellaneous" ] %>
+      <% if !dmr.empty? %>
+        <div class="main-post">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+          </a>
+          <h3 class="entry-title">
+            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+          </h3>
+          <div class="entry-meta">
+            <span><%= dmr[ 0 ].original_date %></span>
+            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
+          </div>
+          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+        </div>
+
+        <ul class="featured-list">
+          <li>
+            <h4 class="entry-title">
+              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+            </h4>
+            <div class="clear"></div>
+          </li>
+        </ul>
+
+        <div class="clear"></div>
+        <div class="clear"></div>
+      <% end %>
     </div>
   </div>
 </section><!-- .site-widgetized-section -->
