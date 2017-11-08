@@ -1,23 +1,25 @@
 module WordPress
   class Data
-    attr_reader :doc
+    attr_reader :doc, :file_name
 
-    def initialize
-      file = File.expand_path( "public/xml_backups/post-backups.xml" )
+    def initialize( file_name )
+      file = File.expand_path( "public/xml_backups/#{ file_name }" )
       file = File.open( file )
+      @file_name = file_name
       @doc  = Nokogiri::XML( file.read().gsub("\u0004", "") )
     end
 
     def posts
       @doc.xpath( "//item[wp:post_type = 'post']" ).collect do | post |
-        WordPress::Post.new( post )
+        WordPress::Post.new( post, @file_name )
       end
     end
   end
 
   class Post
-    def initialize( doc )
+    def initialize( doc, file )
       @doc = doc
+      @file = file
     end
 
     def title
@@ -26,6 +28,10 @@ module WordPress
 
     def slug
       @doc.xpath( "wp:post_name" ).text
+    end
+
+    def original_date
+      Date.parse( @doc.xpath( "pubDate" ).text )
     end
 
     def content
@@ -61,8 +67,27 @@ module WordPress
       end
     end
 
+    def set_featured_img
+      default_url = "https://s3.us-east-2.amazonaws.com/beb-backup/logo_default.png"
+      image_links = get_img_links( @doc )
+      correct_links = image_links.collect { | link | link if link.include? "http" }.compact
+
+      if correct_links.empty?
+        default_url
+      else
+        location = "#{ correct_links[ 0 ].split( "/" )[ -1 ] }"
+        uploaded_link = "https://s3.us-east-2.amazonaws.com/beb-backup/#{ location }"
+        uploaded_link
+      end
+    end
+
+    def get_img_links( data )
+      images = Nokogiri::HTML( data.content ).css( "img" ).collect { | image | image.attributes.values }
+      image_links = images.collect { | image_object | image_object[ 1 ].value }.reject { | link | link.empty? || link.nil? }
+    end
+
     def category
-      @doc.xpath( "category" ).text
+      @file.gsub( "_", " " ).split( "." )[ 0 ].split( " " ).map( &:capitalize ).join( " " )
     end
 
     def save_image_s3( location )

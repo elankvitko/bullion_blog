@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106214921) do
+ActiveRecord::Schema.define(version: 20171108172907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20171106214921) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "post_category_id"
+    t.index ["post_category_id"], name: "index_categories_on_post_category_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -31,6 +33,15 @@ ActiveRecord::Schema.define(version: 20171106214921) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_post_categories_on_category_id"
+    t.index ["post_id"], name: "index_post_categories_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.string "slug", null: false
@@ -39,8 +50,9 @@ ActiveRecord::Schema.define(version: 20171106214921) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_posts_on_category_id"
+    t.bigint "post_category_id"
+    t.string "image_url"
+    t.index ["post_category_id"], name: "index_posts_on_post_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

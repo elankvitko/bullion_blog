@@ -8,7 +8,7 @@
     <article id="post-<%= post.id %>" class="post-1 post type-post status-publish format-standard hentry category-uncategorized">
       <div class="post-thumb">
         <a href="http://devtest.nycbullion.com/index.php/2015/02/16/2016-porsche-cayman-gt4-revealed/">
-          <img src="http://devtest.nycbullion.com/wp-content/uploads/2015/02/2015-Porsche-Cayman-GT4-Blue-5-1920x1200-270x200.jpg" alt="">
+          <img src="<%= post.image_url %>" alt="" width="270" height="200">
         </a>
       </div>
       <section class="entry-body">
@@ -21,7 +21,7 @@
         <div class="entry-meta">
           <span class="entry-author">By <%= post.user.full_name %></span>
           <!-- <span class="entry-date"><time class="entry-date" datetime="2017-11-01T17:34:20+00:00">November 1, 2017</time></span> -->
-          <!-- <span class="cat-links"><%= post.category.name %></span> -->
+          <span class="cat-links"><%= post.categories.collect { | category | category.name }.join( ", " ) %></span>
           <span class="comments-link"><%= post.comments.length %> comments</span>
         </div>
 
