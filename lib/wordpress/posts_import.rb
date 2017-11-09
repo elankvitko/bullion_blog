@@ -49,6 +49,8 @@ module WordPress
           link_split = link.split( "http" )
           link_split[ 0 ] = "https"
           secure_link = link_split.join()
+        else
+          secure_link = link
         end
 
         begin
