@@ -5,15 +5,12 @@ class HomeController < ApplicationController
 
     # Set Restrictions and generate home slider content
     @ok_categories = [ "Weekly Market Analysis", "New Releases", "Market News" ]
-    @featured_categories = []
-    @ok_categories.each { | name | @featured_categories.concat( Category.where( name: name ) ) }
+    @featured_categories = @ok_categories.map { | name | Category.where( name: name ) }.flatten
     @featured_posts = []
     @reject = Category.find_by( name: "Daily Market Review" )
 
-    @weekly_market_analysis_block = []
-
     @featured_categories.each do | category |
-      posts = category.posts.where( "original_date > ?", Date.today - 180 )
+      posts = category.posts.where( "original_date > ?", Date.today - 10 )
 
       posts.each do | post |
         if post.categories.include? @reject
