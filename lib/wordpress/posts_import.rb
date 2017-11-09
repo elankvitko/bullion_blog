@@ -10,7 +10,7 @@ module WordPress
     end
 
     def posts
-      @doc.xpath( "//item[wp:post_type = 'post']" ).collect do | post |
+      @doc.xpath( "//post" ).collect do | post |
         WordPress::Post.new( post, @file_name )
       end
     end
@@ -27,15 +27,15 @@ module WordPress
     end
 
     def slug
-      @doc.xpath( "wp:post_name" ).text
+      @doc.xpath( "slug" ).text
     end
 
     def original_date
-      Date.parse( @doc.xpath( "pubDate" ).text )
+      Date.parse( @doc.xpath( "Date" ).text ) rescue nil
     end
 
     def content
-      content = @doc.xpath( "content:encoded" ).text
+      content = @doc.xpath( "content" ).text
       content = format_syntax_highlighter( content )
       content.gsub( /[\n]{2,}+/, "\n\n" )
       images = Nokogiri::HTML( @doc.content ).css( "img" ).collect { | image | image.attributes.values }
@@ -51,33 +51,24 @@ module WordPress
         end
 
         location = "#{ link.split( "/" )[ -1 ] }"
-        IO.copy_stream( file, location )
-        save_image_s3( location )
-        uploaded_link = "https://s3.us-east-2.amazonaws.com/beb-backup/#{ location }"
-        FileUtils.rm( location )
-        content[ link ] = uploaded_link
+        content[ link ] = process_image_link( file, location )
       end
 
       content
     end
 
-    def comments
-      @doc.xpath( "wp:comment" ).collect do | comment |
-        Comment.new( body: comment.text )
-      end
-    end
-
     def set_featured_img
       default_url = "https://s3.us-east-2.amazonaws.com/beb-backup/logo_default.png"
-      image_links = get_img_links( @doc )
-      correct_links = image_links.collect { | link | link if link.include? "http" }.compact
+      links_string = @doc.xpath( "image_url" ).text
 
-      if correct_links.empty?
+      if links_string.empty?
         default_url
       else
-        location = "#{ correct_links[ 0 ].split( "/" )[ -1 ] }"
-        uploaded_link = "https://s3.us-east-2.amazonaws.com/beb-backup/#{ location }"
-        uploaded_link
+        links_arr = links_string.split( "|" )
+        featured_image = links_arr[ 0 ]
+        file = open( URI.parse( URI.escape( featured_image ) ) )
+        location = "#{ featured_image.split( "/" )[ -1 ] }"
+        featured_link = process_image_link( file, location )
       end
     end
 
@@ -87,7 +78,14 @@ module WordPress
     end
 
     def category
-      @file.gsub( "_", " " ).split( "." )[ 0 ].split( " " ).map( &:capitalize ).join( " " )
+      @doc.xpath( "category" ).text.split( "|" )
+    end
+
+    def process_image_link( file, location )
+      IO.copy_stream( file, location )
+      save_image_s3( location )
+      FileUtils.rm( location )
+      return "https://s3.us-east-2.amazonaws.com/beb-backup/#{ location }"
     end
 
     def save_image_s3( location )
@@ -96,6 +94,10 @@ module WordPress
       name = File.basename( file )
       obj = AWS_RESOURCE.bucket( bucket ).object( name )
       uploaded_file = obj.upload_file( file )
+    end
+
+    def tags
+      @doc.xpath( "tags" ).text.split( "|" )
     end
 
     def format_syntax_highlighter( text )

@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     @weekly_market_analysis_block = []
 
     @featured_categories.each do | category |
-      posts = category.posts.where( "original_date > ?", Date.today - 20 )
+      posts = category.posts.where( "original_date > ?", Date.today - 180 )
 
       posts.each do | post |
         if post.categories.include? @reject
@@ -25,7 +25,7 @@ class HomeController < ApplicationController
     end
 
     # Generate Article Widgets
-    categories = [ "Weekly Market Analysis", "Daily Market Review", "Market News", "New Releases", "Precious Metals Investing", "Miscellaneous" ]
+    categories = [ "Weekly Market Analysis", "Daily market review", "Market News", "New Releases", "Precious Metals Investing", "Miscellaneous" ]
     categories.map! { | category | Category.find_by( name: category ) }
     @posts_by_category = {}
 
@@ -35,7 +35,7 @@ class HomeController < ApplicationController
       @posts_by_category[ category.name ] = [] if !@posts_by_category[ category.name ]
 
       # Collect posts where the date is limited to Today minus the last 15 days
-      collected_posts = category.posts.where( "original_date > ?", Date.today - 180 )
+      collected_posts = category.posts.sort_by { | post | post.original_date }
 
       collected_posts.each do | post |
         @posts_by_category[ category.name ] << post

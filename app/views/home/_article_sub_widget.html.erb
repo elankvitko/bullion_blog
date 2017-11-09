@@ -6,32 +6,30 @@
       </h3>
 
       <% dmr = @posts_by_category[ "Weekly Market Analysis" ] %>
-      <% if !dmr.empty? %>
-        <div class="main-post">
-          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
-            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
-          </a>
-          <h3 class="entry-title">
-            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
-          </h3>
-          <div class="entry-meta">
-            <span><%= dmr[ 0 ].original_date %></span>
-            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
-          </div>
-          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      <div class="main-post">
+        <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+          <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+        </a>
+        <h3 class="entry-title">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+        </h3>
+        <div class="entry-meta">
+          <span><%= dmr[ 0 ].original_date %></span>
+          <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
         </div>
+        <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      </div>
 
-        <ul class="featured-list">
-          <li>
-            <h4 class="entry-title">
-              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-            </h4>
-            <div class="clear"></div>
-          </li>
-        </ul>
-        <div class="clear"></div>
-        <div class="clear"></div>
-      <% end %>
+      <ul class="featured-list">
+        <li>
+          <h4 class="entry-title">
+            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+          </h4>
+          <div class="clear"></div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+      <div class="clear"></div>
     </div>
 
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-6">
@@ -39,33 +37,31 @@
         <span><a href="#">Daily Market Review</a></span>
       </h3>
 
-      <% dmr = @posts_by_category[ "Daily Market Review" ] %>
-      <% if !dmr.empty? %>
-        <div class="main-post">
-          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
-            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
-          </a>
-          <h3 class="entry-title">
-            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
-          </h3>
-          <div class="entry-meta">
-            <span><%= dmr[ 0 ].original_date %></span>
-            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
-          </div>
-          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      <% dmr = @posts_by_category[ "Daily market review" ] %>
+      <div class="main-post">
+        <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+          <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+        </a>
+        <h3 class="entry-title">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+        </h3>
+        <div class="entry-meta">
+          <span><%= dmr[ 0 ].original_date %></span>
+          <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
         </div>
+        <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      </div>
 
-        <ul class="featured-list">
-          <li>
-            <h4 class="entry-title">
-              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-            </h4>
-            <div class="clear"></div>
-          </li>
-        </ul>
-        <div class="clear"></div>
-        <div class="clear"></div>
-      <% end %>
+      <ul class="featured-list">
+        <li>
+          <h4 class="entry-title">
+            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+          </h4>
+          <div class="clear"></div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+      <div class="clear"></div>
     </div>
 
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-2">
@@ -74,33 +70,31 @@
       </h3>
 
       <% dmr = @posts_by_category[ "Market News" ] %>
-      <% if !dmr.empty? %>
-        <div class="main-post">
-          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
-            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
-          </a>
-          <h3 class="entry-title">
-            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
-          </h3>
-          <div class="entry-meta">
-            <span><%= dmr[ 0 ].original_date %></span>
-            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
-          </div>
-          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      <div class="main-post">
+        <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+          <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+        </a>
+        <h3 class="entry-title">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+        </h3>
+        <div class="entry-meta">
+          <span><%= dmr[ 0 ].original_date %></span>
+          <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
         </div>
+        <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      </div>
 
-        <ul class="featured-list">
-          <li>
-            <h4 class="entry-title">
-              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-            </h4>
-            <div class="clear"></div>
-          </li>
-        </ul>
+      <ul class="featured-list">
+        <li>
+          <h4 class="entry-title">
+            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+          </h4>
+          <div class="clear"></div>
+        </li>
+      </ul>
 
-        <div class="clear"></div>
-        <div class="clear"></div>
-      <% end %>
+      <div class="clear"></div>
+      <div class="clear"></div>
     </div>
   </div>
 </section><!-- .site-widgetized-section -->
@@ -112,32 +106,30 @@
       </h3>
 
       <% dmr = @posts_by_category[ "New Releases" ] %>
-      <% if !dmr.empty? %>
-        <div class="main-post">
-          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
-            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
-          </a>
-          <h3 class="entry-title">
-            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
-          </h3>
-          <div class="entry-meta">
-            <span><%= dmr[ 0 ].original_date %></span>
-            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
-          </div>
-          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      <div class="main-post">
+        <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+          <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+        </a>
+        <h3 class="entry-title">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+        </h3>
+        <div class="entry-meta">
+          <span><%= dmr[ 0 ].original_date %></span>
+          <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
         </div>
+        <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      </div>
 
-        <ul class="featured-list">
-          <li>
-            <h4 class="entry-title">
-              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-            </h4>
-            <div class="clear"></div>
-          </li>
-        </ul>
-        <div class="clear"></div>
-        <div class="clear"></div>
-      <% end %>
+      <ul class="featured-list">
+        <li>
+          <h4 class="entry-title">
+            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+          </h4>
+          <div class="clear"></div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+      <div class="clear"></div>
     </div>
 
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-6">
@@ -146,32 +138,30 @@
       </h3>
 
       <% dmr = @posts_by_category[ "Precious Metals Investing" ] %>
-      <% if !dmr.empty? %>
-        <div class="main-post">
-          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
-            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
-          </a>
-          <h3 class="entry-title">
-            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
-          </h3>
-          <div class="entry-meta">
-            <span><%= dmr[ 0 ].original_date %></span>
-            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
-          </div>
-          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      <div class="main-post">
+        <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+          <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+        </a>
+        <h3 class="entry-title">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+        </h3>
+        <div class="entry-meta">
+          <span><%= dmr[ 0 ].original_date %></span>
+          <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
         </div>
+        <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      </div>
 
-        <ul class="featured-list">
-          <li>
-            <h4 class="entry-title">
-              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-            </h4>
-            <div class="clear"></div>
-          </li>
-        </ul>
-        <div class="clear"></div>
-        <div class="clear"></div>
-      <% end %>
+      <ul class="featured-list">
+        <li>
+          <h4 class="entry-title">
+            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+          </h4>
+          <div class="clear"></div>
+        </li>
+      </ul>
+      <div class="clear"></div>
+      <div class="clear"></div>
     </div>
 
     <div class="widget wpzoom-featured-cat" id="wpzoom-featured-cat-2">
@@ -180,33 +170,31 @@
       </h3>
 
       <% dmr = @posts_by_category[ "Miscellaneous" ] %>
-      <% if !dmr.empty? %>
-        <div class="main-post">
-          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
-            <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
-          </a>
-          <h3 class="entry-title">
-            <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
-          </h3>
-          <div class="entry-meta">
-            <span><%= dmr[ 0 ].original_date %></span>
-            <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
-          </div>
-          <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      <div class="main-post">
+        <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>">
+          <img src="<%= dmr[ 0 ].image_url %>" alt="Image: <%= dmr[ 0 ].title %>" class="Thumbnail thumbnail featured-cat " width="640" height="400" />
+        </a>
+        <h3 class="entry-title">
+          <a href="/posts/<%= dmr[ 0 ].id %>" title="<%= dmr[ 0 ].title %>"><%= dmr[ 0 ].title %></a>
+        </h3>
+        <div class="entry-meta">
+          <span><%= dmr[ 0 ].original_date %></span>
+          <span><a href="/posts/<%= dmr[ 0 ].id %>"><%= dmr[ 0 ].comments.count %></a></span>
         </div>
+        <p><%= strip_tags( dmr[ 0 ].body[ 0..400 ] ).strip %>...</p>
+      </div>
 
-        <ul class="featured-list">
-          <li>
-            <h4 class="entry-title">
-              <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
-            </h4>
-            <div class="clear"></div>
-          </li>
-        </ul>
+      <ul class="featured-list">
+        <li>
+          <h4 class="entry-title">
+            <a href="http://devtest.nycbullion.com/index.php/2011/02/23/gorilla-congolium-sic-ad-nauseum/" title="Gorilla congolium sic ad nauseum">Gorilla congolium sic ad nauseum</a>
+          </h4>
+          <div class="clear"></div>
+        </li>
+      </ul>
 
-        <div class="clear"></div>
-        <div class="clear"></div>
-      <% end %>
+      <div class="clear"></div>
+      <div class="clear"></div>
     </div>
   </div>
 </section><!-- .site-widgetized-section -->
