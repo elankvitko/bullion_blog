@@ -44,10 +44,14 @@ module WordPress
       image_links.each do | link |
         next if !link.include? "http"
 
+        link_split = link.split( "http" )
+        link_split[ 0 ] = "https"
+        secure_link = link_split.join()
+
         begin
-          file = open( link )
+          file = open( secure_link )
         rescue
-          file = open( URI.parse( URI.escape( link ) ) )
+          file = open( URI.parse( URI.escape( secure_link ) ) )
         end
 
         location = "#{ link.split( "/" )[ -1 ] }"
