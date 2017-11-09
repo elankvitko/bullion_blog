@@ -43,10 +43,13 @@ module WordPress
 
       image_links.each do | link |
         next if !link.include? "http"
+        secure_link = ""
 
-        link_split = link.split( "http" )
-        link_split[ 0 ] = "https"
-        secure_link = link_split.join()
+        if link.split( "http" )[ 1 ] != "s"
+          link_split = link.split( "http" )
+          link_split[ 0 ] = "https"
+          secure_link = link_split.join()
+        end
 
         begin
           file = open( secure_link )
