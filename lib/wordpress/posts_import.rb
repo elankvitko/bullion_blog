@@ -45,7 +45,7 @@ module WordPress
         next if !link.include? "http"
         secure_link = ""
 
-        if link.split( "http" )[ 1 ] != "s"
+        if !link.include? "https"
           link_split = link.split( "http" )
           link_split[ 0 ] = "https"
           secure_link = link_split.join()
