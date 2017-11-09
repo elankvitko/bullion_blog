@@ -1,4 +1,4 @@
-namespace :wipe_post_data do
+namespace :post do
   desc "Destroy All Posts And Data Along With It"
   task wipe: :environment do
     Post.destroy_all
