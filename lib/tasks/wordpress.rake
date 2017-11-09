@@ -9,7 +9,6 @@ namespace :wordpress do
     data = WordPress::Data.new( file )
 
     data.posts.each do | data |
-      next if data.tags.empty?
       next if data.original_date.nil?
       category = data.category
       tags = data.tags
