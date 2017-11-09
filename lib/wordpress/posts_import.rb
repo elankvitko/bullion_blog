@@ -45,9 +45,9 @@ module WordPress
         next if !link.include? "http"
 
         begin
-          file = open( link )
+          file = open( link, :allow_redirections => :safe )
         rescue
-          file = open( URI.parse( URI.escape( link ) ) )
+          file = open( URI.parse( URI.escape( link ) ), :allow_redirections => :safe )
         end
 
         location = "#{ link.split( "/" )[ -1 ] }"
@@ -66,7 +66,7 @@ module WordPress
       else
         links_arr = links_string.split( "|" )
         featured_image = links_arr[ 0 ]
-        file = open( URI.parse( URI.escape( featured_image ) ) )
+        file = open( URI.parse( URI.escape( featured_image ) ), :allow_redirections => :safe )
         location = "#{ featured_image.split( "/" )[ -1 ] }"
         featured_link = process_image_link( file, location )
       end

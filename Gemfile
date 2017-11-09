@@ -32,6 +32,7 @@ gem 'devise'
 gem 'charlock_holmes'
 gem 'aws-sdk'
 gem 'kitco'
+gem 'open_uri_redirections'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
